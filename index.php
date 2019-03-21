@@ -22,10 +22,7 @@
         </noscript>
         <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-
-
 		<!-- Header -->
-
         <?php include 'header.php';?>
 		<!-- Banner -->
 			<section id="banner">
@@ -41,7 +38,7 @@
 				<div class="container">
 					<header>
 						<h2>ATS</h2>
-						<p> <b>ATS is a online bus reservation system. <br>You can now choose your bus and your seat easily, have the tickets delivered to your mail and online payments. <br>Try ATS experience today.</b></p>
+						<p> <b>ATS is a online bus reservation system. <br>You can now choose your bus and your seat easily <br>Try ATS experience today.</b></p>
 
 					</header>
 					<div class="row 200%">
@@ -60,14 +57,21 @@
 					</div>
 				</div>
 			</section>
-
 		<!-- Two -->
 			<section id="two" class="wrapper style2 align-center">
-				<div class="container">
+				
 					<header>
 						<h2>ATS</h2>
 						<p>Book, Travel, Enjoy & Make Memories <br> "Pay Less Live Large"</p>
 					</header>
+					<h3><b>Top Bus Routes</b></h3>
+					<ul class="alt">
+                    <li></li><li><a href="surat-vadodara.php">SURAT - VADODARA</a></li>
+                    <li><a href="ahm-surat.php">AHAMADABAD - SURAT</a></li>
+                    <li><a href="bhuj-surat.php">BHUJ - SURAT</a></li>
+                    <li><a href="gandhi-bhuj.php">GANDHINAGAR - BHUJ</a></li><li></li></ul>
+					
+				<div class="container">
 					<div class="row">
 						<section class="feature 6u 12u$(small)">
 							<img class="image fit" src="images1/p22.jpg" alt="" />

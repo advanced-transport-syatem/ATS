@@ -11,12 +11,12 @@
                 </ul>
             </section>
             <section class="4u 6u$(medium) 12u$(small)">
-                <h3>Top Bus Routes</h3>
+                <h3>Top Cities</h3>
                 <ul class="alt">
-                    <li>SURAT - VADODARA</li>
-                    <li>AHAMADABAD - SURAT</li>
-                    <li>BHUJ - SURAT</li>
-                    <li>GANDHINAGAR - BHUJ</li>
+                    <li>SURAT </li>
+                    <li>AHAMADABAD </li>
+                    <li>BHUJ</li>
+                    <li>GANDHINAGAR </li>
                 </ul>
             </section>
             <section class="4u$ 12u$(medium) 12u$(small)">
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </section>
-            </center>
+            
         </div>
     </div>
 </footer>
