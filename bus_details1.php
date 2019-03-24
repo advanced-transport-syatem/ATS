@@ -29,6 +29,7 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
+		
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--<style >
 		body {
@@ -129,7 +130,8 @@ td{
 		<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="container">
-
+	
+			
 					<header class="major">
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
@@ -143,8 +145,9 @@ td{
 include "include.php";
 $req=$_POST["Seats"];
 $Bus_id;
-
-$sel="SELECT * FROM `bus` where Origin='".$_POST["Origin"]."' and Destination='".$_POST["Destination"]."' and Date='".$_POST["Date"]."' and Seats>= ".$_POST["Seats"]."  " ;
+$_SESSION['DATE']=$_POST['Date'];
+$_SESSION["Seats"]=$_POST['Seats'];
+$sel="SELECT * FROM `bus` where Origin='".$_POST["Origin"]."' and Destination='".$_POST["Destination"]."' and Date='".$_SESSION["DATE"]."' and Seats>= ".$_POST['Seats']."  " ;
 $str= mysql_query($sel) or die(mysql_error());
 $rows= mysql_num_rows($str) ;
 if($rows==0)
@@ -186,7 +189,7 @@ while($row=mysql_fetch_array($str))
 	echo "<td>".$row['Departure_time']."</td>";
 	echo "<td>".$row['Fare']."</td>";
 	echo "<td>";
-	echo '<a href="payment1.php?Seats_no='.$req.'& Bus_id='.$Bus_id.'& Total_fare='.$Total_fare.'">Book Now</a>';
+	echo '<a href="seat.php?Seats_no='.$req.'& Bus_id='.$Bus_id.'& Total_fare='.$Total_fare.'">Book Now</a>';
 	echo "</td>";
 	echo "</tr>";
 }

@@ -178,7 +178,7 @@ echo '<table align="center" border=1 >
 <th> Total fare </th>
 <th> Bank </th>
 <th> Payment method </th>
-<!--<th> Cancel now </th> -->
+<th> Cancel now </th>
 <th> View Ticket</th>
 </tr>';
 while($row=mysql_fetch_array($str))
@@ -195,10 +195,9 @@ while($row=mysql_fetch_array($str))
 	echo "<td>".$row['Seats_no']."</td>";
 	echo "<td>".$row['Total_fare']."</td>";
 	echo "<td>".$row['Bank']."</td>";
-	echo "<td>".$row['Payment_method']."</td>";
-//	echo "<td>";
-//	echo '<a href="cancel.php?Date='.$Date.' & Fare='.$Fare.'& id='.$id.'& req='.$req.'">Cancel Now</a>';
-//	echo "</td>";
+	echo "<td>".$row['Payment_method']."</td>";	echo "<td>";
+	echo '<a href="cancel.php?Date='.$Date.' & Fare='.$Fare.'& id='.$id.'& req='.$req.'">Cancel Now</a>';
+	echo "</td>";
 	echo "<td>";
 	echo '<a href="view_ticket1.php?id='.$book_id.'">View Ticket</a>';
 	echo "</td>";

@@ -20,5 +20,5 @@ $upd= "UPDATE `user` SET Fname='".$_POST["Fname"]."',Lname='".$_POST["Lname"]."'
 mysql_query($upd) or die(mysql_error());
 
 	$_SESSION['admin'] = 'Profile updated successfully...';
-	header('location: generic.php');
+	header('location: update.php');
 ?>

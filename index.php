@@ -27,7 +27,7 @@
 		<!-- Banner -->
 			<section id="banner">
 				<h2>Welcome to ATS</h2>
-				<p><Quick Search <br> Online Bookings <br> Pay Online <br> Hassle Free Bus Booking<br></p>
+				<p>Quick Search <br> Online Bookings <br> Pay Online <br> Hassle Free Bus Booking<br></p>
 				<ul class="actions">
 				</ul>
 			</section>

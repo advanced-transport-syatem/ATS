@@ -115,7 +115,14 @@ td{
 		<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="container">
-
+				<?php
+				if(isset($_SESSION['admin']))
+				{
+					echo '<p class="message"> <font size="4" color="MediumMagenta"><center> <i>';
+					echo $_SESSION['admin'];
+	
+				}
+				?>
 					<header class="major">
 						<center><i><font  size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
@@ -128,6 +135,9 @@ td{
 include "include.php";
 //$user=$_SESSION['user'];
 //$Bus_id;
+
+
+
 $sel="SELECT * FROM `user` where Username='".$_SESSION['user']."'" ;
 $str= mysql_query($sel);
 $rows= mysql_num_rows($str);

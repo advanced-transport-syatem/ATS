@@ -9,7 +9,10 @@
   	session_destroy();
   	unset($_SESSION['user']);
   	header("location: login.php");
-  }
+	}
+	//$_SESSION[ch]="ch" . strval($i);
+
+
 ?>
 
 <html lang="en">
@@ -112,15 +115,8 @@ h2
 
 		<!-- Header -->
         <?php include 'header1.php';?>
-			<div class="container">
-			<?php
+			
 
-
-
-		$_SESSION['Total_fare']=$_GET['Total_fare'];
-		$_SESSION['Bus_id']=$_GET['Bus_id'];
-		$_SESSION['Seats_no']=$_GET['Seats_no'];
-		?>
 
 		<!-- Main -->
 			<section id="main" class="wrapper">
@@ -154,13 +150,33 @@ h2
   	<option value="Net Banking">Net Banking</option>
   	<option value="Debit card">Debit card</option> </select>
   	<br>
-  	<p> <i>Total Fare: <?php echo $_GET['Total_fare'] ?></i></p>
+					<label class='control-label' for='input1'>Seat Numbers</label>
+					<div class='controls'>
+					<?php 
+						for($i=1; $i<21; $i++)
+						{
+							$chparam = "ch" . strval($i);
+							if(isset($_POST[$chparam]))
+							{
+								echo "<input type='text' class='span3' name=ch".$i." value=".$i." readonly/>";
+							}
+						}
+					?>
+	         </div>
+						
+		
+  	<p> <i>Total Fare: <?php echo $_SESSION['Total_fare'] ?></i></p>
   <br>
+	<div class="form-actions">
+	  <input type="hidden" name="save" value="contact">
   <input class="btn btn-primary" type="submit" value="Submit">
+	</div>
 </form>
-<br>
+<br><br><br>
+<div class="container">
 <a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
 </div>
+
 		<!-- Footer -->
         <?php include 'footer.php';?>
 	</body>

@@ -43,7 +43,7 @@ h1 {
 }
 		</style>
     </head>
-    <body >
+    <body>
 
     <?php include 'header.php';?>
 		<div class="container">
@@ -114,6 +114,32 @@ h1 {
 			</section>
 
 		</div>
+		<a name="about"></a>
+		<section class="landing">
+		<section id="one" class="wrapper style1 align-center">
+				<div class="container">
+					<header>
+						<h1>ATS</h1>
+						<p> <b>ATS is a online bus reservation system. <br>You can now choose your bus and your seat easily <br>Try ATS experience today.</b></p>
+
+					</header>
+					<div class="row 200%">
+						<section class="4u 12u$(small)">
+							<i class="icon big rounded fa-clock-o"></i>
+							<p>You can book the tickets before one month<br> You can cancel the tickets one day before the journey</p>
+						</section>
+						<section class="4u 12u$(small)">
+							<i class="icon big rounded fa-comments"></i>
+							<p>You can comment/mail your queries to our contacts</p>
+						</section>
+						<section class="4u$ 12u$(small)">
+							<i class="icon big rounded fa-user"></i>
+							<p>You can create your personal account and can see your booking history</p>
+						</section>
+					</div>
+				</div>
+			</section>
+			</section>
                 <?php include 'footer.php';?>
     </body>
 </html>
