@@ -1,0 +1,39 @@
+<html>
+  <head>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+  <div style="width: 640px; height: 480px" id="mapContainer"></div>
+  <script>
+// Instantiate a map and platform object:
+var platform = new H.service.Platform({
+  'app_id': '{5yMYU7FlOAGWrXik2SYN}',
+  'app_code': '{jzi9HbqI8q62lQHNXwmlJw}'
+});
+// Retrieve the target element for the map:
+
+router = platform.getRoutingService();
+
+var calculateRouteParams = {
+    'waypoint0': 'geo!52.5,13.4',
+    'waypoint1': 'geo!52.5,13.45',
+    'mode': 'fastest;car;traffic:disabled'
+  },
+  onResult = function(result) {
+    console.log(result.response.route[0]);
+  },
+  onError = function(error) {
+     console.log(error);
+  };
+$d=router.calculateRoute(calculateRouteParams, onResult, onError);
+echo '$d';
+</script>
+  </body>
+</html>
+
+
+

@@ -174,12 +174,12 @@ echo '<table align="center" border=1 >
 </tr>';
 while($row=mysql_fetch_array($str))
 {
-	$Bus_id = $row['Id'];
+	$Bus_id = $row['B_Id'];
 	$Total_fare= $row['Fare'] * $req;
 	//echo $Bus_id;
 	echo "<tr>";
 
-	echo "<td>".$row['Id']."</td>";
+	echo "<td>".$row['B_Id']."</td>";
 	echo "<td>".$row['Name']."</td>";
 	echo "<td>".$row['Seats']."</td>";
 	echo "<td>".$row['Origin']."</td>";

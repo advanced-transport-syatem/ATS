@@ -30,17 +30,18 @@ $req=$_SESSION['Seats_no'];
 $id = $_SESSION['Bus_id'];
 
 // Heo
-$upd= "UPDATE bus SET seats=(seats-$req) WHERE Id=$id";
+$upd= "UPDATE bus SET seats=(seats-$req) WHERE B_Id=$id";
 
 // insert into booking
 // train setas decrea
 
-//mysql_query($query) or die(mysql_error());
+mysql_query($query) or die(mysql_error());
 mysql_query($upd) or die(mysql_error());
 
 //echo "registered succesfully";
 	//$_SESSION['user']=$_POST["Username"];
 	$_SESSION['pay'] = 'Payment successful...';
+	
 	header('location: generic.php');
 //echo '<script language="javascript">document.location.href="web_home.php"</script>';
 ?>

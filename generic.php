@@ -9,7 +9,8 @@
   	session_destroy();
   	unset($_SESSION['user']);
   	header("location: login.php");
-  }
+	}
+
 ?>
 <html lang="en">
 	<head>
@@ -117,6 +118,11 @@ h2
 				<div class="container">
 
 					<header class="major">
+					<?php if (isset($_SESSION['pay'])) {
+						echo $_SESSION['pay'];
+						
+  	unset($_SESSION['pay']);
+						}?>
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
 						<h3>Welcome to ATS</h3>
@@ -139,6 +145,7 @@ h2
   <input class="btn btn-primary" type="reset" value="Reset">
 </form>
 <br>
+<div class="container">
 <a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
 </div>
 		<!-- Footer -->

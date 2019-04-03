@@ -150,7 +150,7 @@ h2
   	<option value="Net Banking">Net Banking</option>
   	<option value="Debit card">Debit card</option> </select>
   	<br>
-					<label class='control-label' for='input1'>Seat Numbers</label>
+					<label class='control-label' for='input1'><b>Seat Numbers</b></label>
 					<div class='controls'>
 					<?php 
 						for($i=1; $i<21; $i++)
@@ -166,13 +166,13 @@ h2
 						
 		
   	<p> <i>Total Fare: <?php echo $_SESSION['Total_fare'] ?></i></p>
-  <br>
+  <br><br><br>
 	<div class="form-actions">
 	  <input type="hidden" name="save" value="contact">
   <input class="btn btn-primary" type="submit" value="Submit">
 	</div>
 </form>
-<br><br><br>
+<br><br><br><br><br>
 <div class="container">
 <a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
 </div>
