@@ -157,8 +157,8 @@ else
 	while($row=mysql_fetch_array($str))
 {
 
-	$query2="SELECT * FROM `bus` where Id='".$row['Bus_id']."'" ;
-	$str1= mysql_query($query2);
+	$query2="SELECT * FROM `bus` where Bus_id='".$row['Bus_id']."'" ;
+	$str1= mysql_query($query2) or die(mysql_error());
 	$row2= mysql_fetch_array($str1);
 
 	echo '<div class="container">';

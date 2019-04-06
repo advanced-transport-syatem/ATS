@@ -116,7 +116,13 @@ h2
 			<div class="container">
 				<?php
 		session_start();
-
+		if(isset($_SESSION['updt']))
+		{
+			echo '<p class="message"> <font size="5" color="White"> <center> <i>';
+			echo $_SESSION['updt'];
+			echo "</i></center></font></p>";
+			unset($_SESSION['updt']); 
+		}
 		?>
 
 		<!-- Main -->
@@ -127,6 +133,7 @@ h2
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['admin']?></font></i></strong></center>
 						<br>
 						<h3>Welcome to ATS</h3>
+						
 					</header>
 
 				<!--	<a href="#" class="image fit"><img src="images1/bus3.jpg" alt="" /></a>-->

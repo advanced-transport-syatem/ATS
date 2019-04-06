@@ -116,12 +116,14 @@ td{
 			<section id="main" class="wrapper">
 				<div class="container">
 				<?php
-				if(isset($_SESSION['admin']))
-				{
-					echo '<p class="message"> <font size="4" color="MediumMagenta"><center> <i>';
-					echo $_SESSION['admin'];
-	
-				}
+					if(isset($_SESSION['update']))
+					{
+						echo '<p class="message"> <font size="5" color="White"> <center> <i>';
+						echo $_SESSION['update'];
+						echo "</i></center></font></p>";
+						unset($_SESSION['update']); 
+					}
+			
 				?>
 					<header class="major">
 						<center><i><font  size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>

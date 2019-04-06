@@ -3,7 +3,8 @@
 	Brought to You By Code-Projects. Log On To www.code-projects.org for more free projects.
 -->
 <html lang="en">
-    <body class="landing">
+    <body class="landing" style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+
 	<head>
         <meta charset="UTF-8">
         <title>ATS</title>
@@ -65,12 +66,13 @@
 						<p>Book, Travel, Enjoy & Make Memories <br> "Pay Less Live Large"</p>
 					</header>
 					<h3><b>Top Bus Routes</b></h3>
+					
 					<ul class="alt">
                     <li></li><li><a href="surat-vadodara.php">SURAT - VADODARA</a></li>
                     <li><a href="ahm-surat.php">AHAMADABAD - SURAT</a></li>
                     <li><a href="bhuj-surat.php">BHUJ - SURAT</a></li>
-                    <li><a href="gandhi-bhuj.php">GANDHINAGAR - BHUJ</a></li><li></li></ul>
-					
+                    <li><a href="gandhi-bhuj.php">GANDHINAGAR - BHUJ</a></li></ul>
+				
 				<div class="container">
 					<div class="row">
 						<section class="feature 6u 12u$(small)">
@@ -83,8 +85,8 @@
 					<!--		<h3 class="title">Esse, fugiat, in</h3>
 							<p>Natus perspiciatis fugit illum porro iusto fuga nam voluptas minima voluptates deserunt, veniam reiciendis harum repellat necessitatibus. Animi, adipisci qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 					-->	</section>
-						<p><b> Why ATS for Bus Booking? </b>
-<br>The leading player in online Bus bookings in the country, We offer lowest fares, exclusive discounts and a seamless online booking experience. Desktop or mobile site is a delightfully customer friendly experience, and with just a few clicks you can complete your booking.We are always with you to make your journey more batter.</p>
+						<p><b><font color="#B22222"> Why ATS for Bus Booking?</font> </b>
+<br><font color="#663399">The leading player in online Bus bookings in the country, We offer lowest fares, exclusive discounts and a seamless online booking experience. Desktop or mobile site is a delightfully customer friendly experience, and with just a few clicks you can complete your booking.We are always with you to make your journey more batter.</p></font>
 <br> <br>
 				</div>
 			</section>

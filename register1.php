@@ -73,6 +73,13 @@ h1 {
 			echo "</i></center></font></p>";
 			unset($_SESSION['error']);
 		}
+		if(isset($_SESSION['Aadhar']))
+		{
+			echo '<p class="message"> <font size="5" color="MediumMagenta"> <center><i>';
+			echo $_SESSION['Aadhar'];
+			echo "</i></center></font></p>";
+			unset($_SESSION['Aadhar']);
+		}
 		?>
 
 	</table>
@@ -93,12 +100,14 @@ h1 {
 
     Password
 <input class="form-control" name="Password" placeholder="choose a password" type ="password">
- 
+Aadhar No
+<input class="form-control" name="Aadhar" placeholder="Enter Aadhar card number" type ="text">
+
 <!--Name of your primary school?
 <input class="form-control" name="Security" placeholder="please answer the security question" type ="text">--> 
 
  <input type="submit" class="btn btn-primary" name="sub" value="Register">
- <input type="Reset" class="btn btn-primary" name="reset" value="Reset">
+ <center><input type="Reset" class="btn btn-primary" name="reset" value="Reset"></center>
 
 				</form>
 			</section>

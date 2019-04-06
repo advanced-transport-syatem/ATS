@@ -19,10 +19,9 @@
 		die ("Could not connect to the database: <br />". mysql_error());
 	}
 	mysql_select_db('bus_booking_system');
-	$_SESSION['Total_fare']=$_GET['Total_fare'];
-	$_SESSION['Bus_id']=$_GET['Bus_id'];
-	$_SESSION['Seats_no']=$_GET['Seats_no'];
+	
 ?>
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -34,14 +33,23 @@
 		
 	</head>
 	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
-
+	<?php if (isset($_SESSION['Seats_no'])) {
+						echo '<p class="message"> <font size="5" color="White"> <center> <i>';
+						echo 'please select only ';
+						echo $_SESSION['Seats_no'];
+						echo ' seats';
+						echo "</i></center></font></p>";
+						
+						}?>
 		<br /><br /><br />
 		<div class="container">
 			<div class="row well">
 				<div class="span10">
-					<form action="payment1.php" method="POST" onsubmit="return validateCheckBox();">
+					<form action="payment1.php" name="f" method="POST" onsubmit="return validateCheckBox();">
 						<ul class="thumbnails">
 						<?php
+						
+						
 							$date = strip_tags( utf8_decode( $_SESSION['DATE'] ) );
 							$query = "select * from booking where Date = '" . $date . "'";
 							$result = mysql_query($query);
@@ -89,7 +97,7 @@
 											echo "<a href='#' class='thumbnail' title='Available'>";
 												echo "<img src='img/available.png' alt='Available Seat'/>";
 												echo "<label class='checkbox'>";
-													echo "<input type='checkbox' name='ch".$i."'/>Seat".$i;
+													echo "<input type='checkbox'  name='ch".$i."'/>Seat".$i;
 												echo "</label>";
 											echo "</a>";
 										echo "</li>";
@@ -118,25 +126,33 @@
 		<script>window.jQuery || document.write('<script src="js/jquery-latest.min.js">\x3C/script>')</script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript">
+		
 			function validateCheckBox()
 			{
-				var c = document.getElementsByTagName('input');
+				
 
+				var c = document.getElementsByTagName('input');
+				var f=0;
+				var a = '<?php echo $_SESSION['Seats_no']; ?>';
 				for (var i = 0; i < c.length; i++)
 				{
 					if (c[i].type == 'checkbox')
 					{
-						if (c[i].checked) 
+						
+						 if (c[i].checked)
 						{
-							return true;
+							 f=f+1;
 						}
 					}
 				}
-				
-				alert('Please select at least 1 ticket.');
+				if (f==a)
+				{
+					return true;
+				}
+		
+				alert('Please select Your inputed total seat.');
 				return false;
 			}
-		</script>
-		
+		</script>	
 	</BODY>
 </HTML>

@@ -10,7 +10,10 @@
   	unset($_SESSION['user']);
   	header("location: login.php");
 	}
-
+	$_SESSION['Total_fare']=$_GET['Total_fare'];
+	$_SESSION['Bus_id']=$_GET['Bus_id'];
+	$_SESSION['Seats_no']=$_GET['Seats_no'];
+	$s=$_SESSION['Seats_no'];
 ?>
 <html lang="en">
 	<head>
@@ -67,31 +70,11 @@ input.button:hover {
 background:#fff;
 color:#09C;
 }
-form    {
-background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
-background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-margin:auto;
-position:relative;
-width:550px;
-height:500px;
-font-family: Tahoma, Geneva, sans-serif;
-font-size: 14px;
-font-style: italic;
-line-height: 24px;
-font-weight: bold;
-color: #000000;
-text-decoration: none;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-padding:10px;
-border: 1px solid #999;
-border: inset 1px solid #333;
--webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
--moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-}
 
+table, th, td {
+  border: 1px solid blue;
+
+}
 input::-webkit-input-placeholder {
   color: 	#f00;
 }
@@ -106,7 +89,9 @@ h2
 {
 	color:red;
 }
+
 		</style>
+        
 	</head>
 	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
 
@@ -131,26 +116,43 @@ h2
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						
 						<br>
-						<h3>Welcome to ATS</h3>
+						<h3>Welcome to ITS</h3>
 					</header>
                 </div>
 			</section>
-			<center>	<h2>Search Buses</h2> </center>
-			<form action="bus_details1.php" method="POST">
-
-  From
-  <input class="form-control" placeholder="Enter a city" type="text" name="Origin">
- <br> To
-  <input class="form-control" type="text" placeholder="Enter a city" name="Destination" >
- <br> Date of journey
-  <input class="form-control" type="date" placeholder="yyyy-dd-mm" name="Date" >
- <br> No of seats
-	<input class="form-control" type="text" placeholder="Enter no of seats you want to book" name="Seats" >
+			<center>	<h2>Passenger Deatil</h2> </center>
+			<form action="seat.php" method="POST">
+                <table><center>
+                    <tr><th>No</th>
+                    <th>Fname</th>
+                    <th>Lname</th>
+                    <th> Date of birth</th>
+                    <th>Age</th>
+                    
+                    <th>Aadhar numberNo</th>
+                    </tr>
+   <?php for($i=1;$i<=$s;$i++) 
+   { ?>               
+<tr><td><?php echo $i; ?> </td><td>
+  <input class="form-control" placeholder="Enter your Fname" type="text" name="no">
+            </td> 
+  <td><input class="form-control" type="text" placeholder="Enter your Lname" name="fname" >
+            </td> <td> 
+            <input  type="date" placeholder="yyyy-dd-mm" name="lname" >
+            </td><td>
+	<input class="form-control" type="text" placeholder="Enter your age" name="date" >
+            </td><td>
+	<!--<input class="form-control" type="radio"  name="radio" value="male""">male
+    <input class="form-control" type="radio"  name="radio" value="female">female
+            </td> <td>-->
+    <input class="form-control" type="text" placeholder="Enter your adhar no" name="aadhar" ></td></tr>
+  <?php }?></table>
 <!--	<br>Aadhar No
   <input class="form-control" type=text placeholder="Enter your aadhar no" name="Seats" >-->
   <br>
-  <input class="btn btn-primary" type="submit" value="Submit">
-  <input class="btn btn-primary" type="reset" value="Reset">
+ <center> <input class="btn btn-primary" type="submit" value="Submit">
+  <input class="btn btn-primary" type="reset" value="Reset"></center>
+            </center>
 </form>
 <br>
 <div class="container">

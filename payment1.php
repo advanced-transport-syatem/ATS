@@ -76,7 +76,7 @@ background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 margin:auto;
 position:relative;
 width:550px;
-height:350px;
+height:450px;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 14px;
 font-style: italic;
@@ -135,7 +135,7 @@ h2
 
 -->				</div>
 			</section>
-			<center>	<h2>Payment</h2> </center>
+			<center>	<h2>Book bus</h2> </center>
 			<form action="book.php" method="POST">
   Select a bank
     <!-- &nbsp; &nbsp; &nbsp; &nbsp;-->
@@ -150,8 +150,7 @@ h2
   	<option value="Net Banking">Net Banking</option>
   	<option value="Debit card">Debit card</option> </select>
   	<br>
-					<label class='control-label' for='input1'><b>Seat Numbers</b></label>
-					<div class='controls'>
+					Seat Numbers<br>
 					<?php 
 						for($i=1; $i<21; $i++)
 						{
@@ -162,11 +161,10 @@ h2
 							}
 						}
 					?>
-	         </div>
-						
-		
+	
   	<p> <i>Total Fare: <?php echo $_SESSION['Total_fare'] ?></i></p>
-  <br><br><br>
+
+	<br>
 	<div class="form-actions">
 	  <input type="hidden" name="save" value="contact">
   <input class="btn btn-primary" type="submit" value="Submit">

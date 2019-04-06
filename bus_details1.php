@@ -9,7 +9,8 @@
   	session_destroy();
   	unset($_SESSION['user']);
   	header("location: login.php");
-  }
+	}
+	
 ?>
 
 <html lang="en">
@@ -144,7 +145,7 @@ td{
 <?php
 include "include.php";
 $req=$_POST["Seats"];
-$Bus_id;
+$_SESSION['rs']=$_POST["Seats"];
 $_SESSION['DATE']=$_POST['Date'];
 $_SESSION["Seats"]=$_POST['Seats'];
 $sel="SELECT * FROM `bus` where Origin='".$_POST["Origin"]."' and Destination='".$_POST["Destination"]."' and Date='".$_SESSION["DATE"]."' and Seats>= ".$_POST['Seats']."  " ;
@@ -174,12 +175,13 @@ echo '<table align="center" border=1 >
 </tr>';
 while($row=mysql_fetch_array($str))
 {
-	$Bus_id = $row['B_Id'];
+	$Bus_id = $row['Bus_Id'];
+	$_SESSION['FARE']=$row['Fare'];
 	$Total_fare= $row['Fare'] * $req;
 	//echo $Bus_id;
 	echo "<tr>";
 
-	echo "<td>".$row['B_Id']."</td>";
+	echo "<td>".$row['Bus_Id']."</td>";
 	echo "<td>".$row['Name']."</td>";
 	echo "<td>".$row['Seats']."</td>";
 	echo "<td>".$row['Origin']."</td>";
@@ -189,7 +191,7 @@ while($row=mysql_fetch_array($str))
 	echo "<td>".$row['Departure_time']."</td>";
 	echo "<td>".$row['Fare']."</td>";
 	echo "<td>";
-	echo '<a href="seat.php?Seats_no='.$req.'& Bus_id='.$Bus_id.'& Total_fare='.$Total_fare.'">Book Now</a>';
+	echo '<a href="passengerd.php?Seats_no='.$req.'& Bus_id='.$Bus_id.'& Total_fare='.$Total_fare.'">Book Now</a>';
 	echo "</td>";
 	echo "</tr>";
 }

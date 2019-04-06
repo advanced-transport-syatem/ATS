@@ -158,12 +158,12 @@ echo '<table align="center" border=1 >
 </tr>';
 while($row=mysql_fetch_array($str))
 {
-	$Bus_id = $row['Id'];
+	$Bus_id = $row['Bus_Id'];
 	
 	//echo $Bus_id;
 	echo "<tr>";
 
-	echo "<td>".$row['Id']."</td>";
+	echo "<td>".$row['Bus_Id']."</td>";
 	echo "<td>".$row['Name']."</td>";
 	echo "<td>".$row['Seats']."</td>";
 	echo "<td>".$row['Origin']."</td>";
