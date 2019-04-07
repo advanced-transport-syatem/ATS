@@ -110,6 +110,8 @@ h2
 						<li><a href="admin_home1.php">Home</a></li>
 					<!--	<li><a href="#book">Book Now</a></li>-->
 						<li><a href="admin_logout.php">Logout</a></li>
+						<li><a href="busavailable.php">Bus detail</a></li>
+						<li><a href="cancel_bus.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -133,17 +135,15 @@ h2
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['admin']?></font></i></strong></center>
 						<br>
 						<h3>Welcome to ATS</h3>
-						
 					</header>
 
 				<!--	<a href="#" class="image fit"><img src="images1/bus3.jpg" alt="" /></a>-->
 			<!--		<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
 					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
 					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
-
 -->				</div>
 			</section>
-			<center>	<h2>Add Buses</h2> </center>
+			
 			<form action="add_bus.php" method="POST">
  	Name
   <input class="form-control" placeholder="Enter bus name" type="text" name="Name" >

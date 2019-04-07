@@ -4,19 +4,21 @@
   session_start(); 
   if (!isset($_SESSION['user'])) {
   	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
+  	header('location: admin_login.php');
   }
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['user']);
-  	header("location: login.php");
+  	header("location: admin_login.php");
 	}
 
 ?>
 <html lang="en">
+
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Generic</title>
+		<title>Bus_details</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -30,7 +32,8 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
-		<link rel="stylesheet" href="css/ie/v8.css" />
+		
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--<style >
 		body {
 				background: #7f9b4e url(images1/bus3.jpg) no-repeat center top;
@@ -74,7 +77,7 @@ background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 margin:auto;
 position:relative;
 width:550px;
-height:200px;
+height:400px;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 14px;
 font-style: italic;
@@ -103,56 +106,67 @@ height:150px;
 textarea.message {
 display:block;
 }
-h2
-{
+h2{
 	color:red;
+}
+h4
+{
+	color:white;
+}
+td{
+	color:white;
 }
 		</style>
 	</head>
 	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
 
-		<!-- Header -->
-
-        <?php include 'header1.php';?>
-			<!-- Main -->
-			<section id="main" class="wrapper">
-				<div class="container">
-				<?php
+    <header id="header">
+				<h1><a href="index.php">BookMyATS</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="admin_home1.php">Home</a></li>
+					<!--	<li><a href="#book">Book Now</a></li>-->
+						<li><a href="admin_logout.php">Logout</a></li>
+						<li><a href="passenger_detail.php">passenger detail</a></li>
+						<li><a href="cancel_bus.php">Logout</a></li>
+					</ul>
+				</nav>
+			</header>
 			
-				if(isset($_SESSION['pay']))
-				{
-					$rr=$_SESSION['Seats_no'];
-					echo '<p class="message"> <font size="5" color="White"> <center> <i>';
-					echo $_SESSION['pay'];
-					echo "</i></center></font></p>";
-					
-					unset($_SESSION['pay']); 
-				}
-				//$_SESSION['bid']=$_GET['id'];
-				?>
-				<?php 
-				$_SESSION['Bus_Id']=$_GET['id'];?>
+				<div class="container">
+                <?php
+			
+            if(isset($_SESSION['del']))
+            {
+                
+                echo '<p class="message"> <font size="5" color="White"> <center> <i>';
+                echo $_SESSION['del'];
+                echo "</i></center></font></p>";
+                
+                unset($_SESSION['pay']); 
+            }
+            ?>
 					<header class="major">
-					
-						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
-						
+						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['admin']?></font></i></strong></center>
 						<br>
 						<h3>Welcome to ATS</h3>
-					</header>
                 </div>
 			</section>
-            <center>	<h2>your ticket</h2> </center>
+			
+			
+<br>
+<form action="buses.php" method="POST">
 
-            <form action="cancelticket.php" action="POST">
-			
-			enter no of seat 
-			<input class="form-control" type="text" placeholder="Enter no of seats you want to cancel" name="Sd" >
-			<br>
-			  <input  class="form-control" type="submit" name="submit" value="Submit">
-			  
-			
-			<br>
-			
-
+  From
+  <input class="form-control" placeholder="Enter a city" type="text" name="Origin">
+ <br> To
+  <input class="form-control" type="text" placeholder="Enter a city" name="Destination" >
+ <br> Date of journey
+  <input class="form-control" type="date" placeholder="yyyy-dd-mm" name="date1" >
+<!--	<br>Aadhar No
+  <input class="form-control" type=text placeholder="Enter your aadhar no" name="Seats" >-->
+  <br>
+  <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+  <input class="btn btn-primary" type="reset" value="Reset">
 </form>
 </html>

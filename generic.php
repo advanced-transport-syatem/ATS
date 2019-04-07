@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+//include "include.php";
   session_start(); 
   if (!isset($_SESSION['user'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -120,9 +121,11 @@ h2
 			
 				if(isset($_SESSION['pay']))
 				{
+					$rr=$_SESSION['Seats_no'];
 					echo '<p class="message"> <font size="5" color="White"> <center> <i>';
 					echo $_SESSION['pay'];
 					echo "</i></center></font></p>";
+					
 					unset($_SESSION['pay']); 
 				}
 				?>

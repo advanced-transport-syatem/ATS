@@ -134,23 +134,23 @@ h2
    <?php for($i=1;$i<=$s;$i++) 
    { ?>               
 <tr><td><?php echo $i; ?> </td><td>
-  <input class="form-control" placeholder="Enter your Fname" type="text" name="no">
+  <input class="form-control" placeholder="Enter your Fname" type="text" name="fname<?php echo $i; ?>" id='fname{$i}'>
             </td> 
-  <td><input class="form-control" type="text" placeholder="Enter your Lname" name="fname" >
+  <td><input class="form-control" type="text" placeholder="Enter your Lname" name="lname<?php echo $i; ?>" >
             </td> <td> 
-            <input  type="date" placeholder="yyyy-dd-mm" name="lname" >
+            <input  type="date" placeholder="yyyy-dd-mm" name="date2<?php echo $i; ?>" >
             </td><td>
-	<input class="form-control" type="text" placeholder="Enter your age" name="date" >
+	<input class="form-control" type="text" placeholder="Enter your age" name="age<?php echo $i; ?>" >
             </td><td>
 	<!--<input class="form-control" type="radio"  name="radio" value="male""">male
     <input class="form-control" type="radio"  name="radio" value="female">female
             </td> <td>-->
-    <input class="form-control" type="text" placeholder="Enter your adhar no" name="aadhar" ></td></tr>
+    <input class="form-control" type="text" placeholder="Enter your adhar no" name="aadhar<?php echo $i; ?>" ></td></tr>
   <?php }?></table>
 <!--	<br>Aadhar No
   <input class="form-control" type=text placeholder="Enter your aadhar no" name="Seats" >-->
   <br>
- <center> <input class="btn btn-primary" type="submit" value="Submit">
+ <center> <input class="btn btn-primary" type="submit" name="submit" value="Submit">
   <input class="btn btn-primary" type="reset" value="Reset"></center>
             </center>
 </form>

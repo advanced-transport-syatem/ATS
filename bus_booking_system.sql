@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 05, 2019 at 12:25 PM
+=======
+-- Generation Time: Mar 21, 2019 at 01:47 PM
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -23,6 +27,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `aadhar`
 --
 
@@ -40,6 +45,8 @@ CREATE TABLE `aadhar` (
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- Table structure for table `admin`
 --
 
@@ -87,11 +94,18 @@ INSERT INTO `bank` (`bank_id`, `bank_name`) VALUES
 
 CREATE TABLE `booking` (
   `Booking_id` int(11) NOT NULL,
+<<<<<<< HEAD
   `UserID` varchar(50) NOT NULL,
   `user` varchar(50) NOT NULL,
   `Date` date NOT NULL,
   `PNR` varchar(14) NOT NULL COMMENT 'PNR',
   `Bus_id` int(11) NOT NULL,
+=======
+  `user` varchar(50) NOT NULL,
+  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Bus_id` int(11) NOT NULL,
+  `Seats_no` int(11) NOT NULL,
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
   `Total_fare` double NOT NULL,
   `Bank` varchar(200) NOT NULL,
   `Payment_method` varchar(200) NOT NULL
@@ -101,7 +115,14 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
+<<<<<<< HEAD
 
+=======
+INSERT INTO `booking` (`Booking_id`, `user`, `Date`, `Bus_id`, `Seats_no`, `Total_fare`, `Bank`, `Payment_method`) VALUES
+(1, 'n11', '2019-01-25 05:40:24', 1, 2, 1000, 'SBH', 'Debit card'),
+(2, 'NN', '2019-01-25 05:53:48', 4, 2, 1184, 'SBH', 'Net Banking'),
+(3, 'NN', '2019-01-25 05:58:44', 3, 2, 1200, 'AB', 'Debit card');
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 
 -- --------------------------------------------------------
 
@@ -110,7 +131,11 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `bus` (
+<<<<<<< HEAD
   `Bus_Id` int(11) NOT NULL,
+=======
+  `Id` int(11) NOT NULL,
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
   `Name` varchar(200) NOT NULL,
   `Origin` varchar(200) NOT NULL,
   `Destination` varchar(200) NOT NULL,
@@ -125,6 +150,7 @@ CREATE TABLE `bus` (
 -- Dumping data for table `bus`
 --
 
+<<<<<<< HEAD
 INSERT INTO `bus` (`Bus_Id`, `Name`, `Origin`, `Destination`, `Seats`, `Arrival_time`, `Departure_time`, `Date`, `Fare`) VALUES
 (1, 'gj05', 'surat', 'vadodara', 10, '03:10:00', '03:30:00', '2019-01-24', 500),
 (2, 'gj05', 'surat', 'vadodara', 10, '03:30:00', '03:40:00', '2019-01-24', 497),
@@ -135,6 +161,14 @@ INSERT INTO `bus` (`Bus_Id`, `Name`, `Origin`, `Destination`, `Seats`, `Arrival_
 (7, 'GUJ EXPRESS', 'surat', 'vadodara', 15, '20:00:00', '20:30:00', '2019-03-26', 500),
 (8, 'gj05', 'surat', 'vadodara', 7, '21:00:00', '22:00:00', '2019-04-18', 500),
 (9, 'GUJ EXPRESS', 'surat', 'vadodara', 20, '22:00:00', '23:00:00', '2019-04-16', 500);
+=======
+INSERT INTO `bus` (`Id`, `Name`, `Origin`, `Destination`, `Seats`, `Arrival_time`, `Departure_time`, `Date`, `Fare`) VALUES
+(1, 'gj05', 'surat', 'vadodara', 8, '03:10:00', '03:30:00', '2019-01-24', 500),
+(2, 'gj05', 'surat', 'vadodara', 10, '03:30:00', '03:40:00', '2019-01-24', 497),
+(3, 'gj05', 'surat', 'vadodara', 8, '22:00:00', '23:00:00', '2019-01-25', 600),
+(4, 'GUJ EXPRESS', 'AHMADVAD', 'SURAT', 18, '02:10:00', '03:00:00', '2019-01-26', 592),
+(5, 'GUJ EXPRESS', 'surat', 'vadodara', 20, '23:00:00', '00:00:00', '2019-03-22', 488);
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 
 -- --------------------------------------------------------
 
@@ -161,6 +195,7 @@ INSERT INTO `city` (`city_id`, `city_code`, `city_name`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `location`
 --
 
@@ -187,6 +222,8 @@ CREATE TABLE `passenger` (
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- Table structure for table `seats`
 --
 
@@ -198,6 +235,7 @@ CREATE TABLE `seats` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `ticket`
 --
 
@@ -210,6 +248,8 @@ CREATE TABLE `ticket` (
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- Table structure for table `user`
 --
 
@@ -228,7 +268,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserID`, `Fname`, `Lname`, `Email`, `Username`, `Password`, `Timestamp`) VALUES
+<<<<<<< HEAD
 (2, 'nidhi', 'sindha', 'nidhisindha1@gmail.com', 'n11', '78367f1f8dfb5bd5fd113fd1fe990f28d390663b', '2019-01-24 16:48:10'),
+=======
+(2, 'NIDHI', 'SINDHA', 'nidhisindha1@gmail.com', 'n11', '95a141a7998fa85e03179b32dae3c09417318541', '2019-01-24 16:48:10'),
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 (3, 'nidhi', 'patel', 'nidhisindha12@gmail.com', 'nn', 'e0eb416bcadb813f1623ac047969116936876e25', '2019-01-24 16:51:32');
 
 --
@@ -236,6 +280,7 @@ INSERT INTO `user` (`UserID`, `Fname`, `Lname`, `Email`, `Username`, `Password`,
 --
 
 --
+<<<<<<< HEAD
 -- Indexes for table `aadhar`
 --
 ALTER TABLE `aadhar`
@@ -243,6 +288,8 @@ ALTER TABLE `aadhar`
   ADD KEY `P_ID` (`P_ID`);
 
 --
+=======
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
@@ -259,14 +306,22 @@ ALTER TABLE `bank`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`Booking_id`),
+<<<<<<< HEAD
   ADD KEY `Bus_id` (`Bus_id`),
   ADD KEY `UserID` (`UserID`);
+=======
+  ADD KEY `Bus_id` (`Bus_id`);
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 
 --
 -- Indexes for table `bus`
 --
 ALTER TABLE `bus`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`Bus_Id`);
+=======
+  ADD PRIMARY KEY (`Id`);
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 
 --
 -- Indexes for table `city`
@@ -276,6 +331,7 @@ ALTER TABLE `city`
   ADD UNIQUE KEY `city_code` (`city_code`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `passenger`
 --
 ALTER TABLE `passenger`
@@ -292,6 +348,8 @@ ALTER TABLE `ticket`
   ADD KEY `P_ID` (`P_ID`);
 
 --
+=======
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -316,18 +374,27 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
+<<<<<<< HEAD
   MODIFY `Booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+=======
+  MODIFY `Booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 --
 -- AUTO_INCREMENT for table `bus`
 --
 ALTER TABLE `bus`
+<<<<<<< HEAD
   MODIFY `Bus_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+=======
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 --
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
   MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
@@ -338,6 +405,8 @@ ALTER TABLE `passenger`
 ALTER TABLE `ticket`
   MODIFY `T_ID` int(11) NOT NULL AUTO_INCREMENT;
 --
+=======
+>>>>>>> b9a1dcf60acdee220ec85548ae7a3d7d418dbde4
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`

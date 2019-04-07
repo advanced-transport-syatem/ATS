@@ -148,6 +148,8 @@ $req=$_POST["Seats"];
 $_SESSION['rs']=$_POST["Seats"];
 $_SESSION['DATE']=$_POST['Date'];
 $_SESSION["Seats"]=$_POST['Seats'];
+$_SESSION['des']=$_POST["Destination"];
+$_SESSION['ori']=$_POST["Origin"];
 $sel="SELECT * FROM `bus` where Origin='".$_POST["Origin"]."' and Destination='".$_POST["Destination"]."' and Date='".$_SESSION["DATE"]."' and Seats>= ".$_POST['Seats']."  " ;
 $str= mysql_query($sel) or die(mysql_error());
 $rows= mysql_num_rows($str) ;

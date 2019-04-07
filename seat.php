@@ -153,6 +153,37 @@
 				alert('Please select Your inputed total seat.');
 				return false;
 			}
-		</script>	
+		</script>
+
+
+		<?php
+		$rr=$_SESSION['Seats_no'];
+		$size=sizeof($_POST);
+		$number=$size/5;   //here 3 is number of column in the HTML table
+		for($i=1;$i<=$number;$i++)
+		{
+			$index1="fname".$i;
+			$fname[$i]=$_POST[$index1];
+			$index2="lname".$i;
+			$lname[$i]=$_POST[$index2];
+			$index3="date2".$i;
+			$date2[$i]=$_POST[$index3];	
+			$date2[$i] = strip_tags( utf8_decode( $date2[$i] ) );
+			$index3="age".$i;
+			$age[$i]=$_POST[$index3];	
+			$index3="aadhar".$i;
+			$aadhar[$i]=$_POST[$index3];	
+		}	
+		
+		for($i=1;$i<=$rr;$i++)
+		{
+			$query = "INSERT INTO `passenger`(`Bus_id`,`Fname`,`Lname`,`dob`,`age`,`Origin`,`Destination`,`JourneyDate`,`Aadhar_no`)VALUES('". $_SESSION['Bus_id'] ."','". $fname[$i] ."','". $lname[$i] ."', '". $date2[$i] ."','". $age[$i] ."','". $_SESSION['ori'] ."','". $_SESSION['des'] ."','". $_SESSION['DATE'] ."',(SELECT Aadhar_no FROM aadhar WHERE Fname LIKE '".$fname[$i]."'))";
+		  $number = mysql_query($query) or die(mysql_error());
+		 $_SESSION["fname{$i}"] = $fname[$i];
+		  
+		}
+	
+		
+?>
 	</BODY>
 </HTML>

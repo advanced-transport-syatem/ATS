@@ -128,8 +128,7 @@ td{
 		{
 			echo '<p class="message"> <font size="4" color="MediumMagenta"><center> <i>';
 			echo $_SESSION['del'];
-			echo $_SESSION['refund'];
-			echo $_SESSION['mesg'];
+		
 			echo "</i></center></font></p>";
 			unset($_SESSION['del']);
 		}
@@ -174,10 +173,11 @@ echo '<table align="center" border=1 >
 <tr>
 <th> Date and Time</th>
 <th> Bus id  </th>
-<th> No of seats</th>
+<th> name</th>
 <th> Total fare </th>
 <th> Bank </th>
 <th> Payment method </th>
+<th> Aadhar No </th>
 <th> Cancel now </th>
 <th> View Ticket</th>
 </tr>';
@@ -186,17 +186,20 @@ while($row=mysql_fetch_array($str))
 	$Date= $row['Date'];
 	$Fare= $row['Total_fare'];
 	$id= $row['Bus_id'];
-	$req=$row['Seats_no'];
+	$name= $row['name'];
+	$ano= $row['Aadhar_no'];
+	$req=$_SESSION['Seats_no'];
 	$book_id=$row['Booking_id'];
 	echo "<tr>";
 
 	echo "<td>".$row['Date']."</td>";
 	echo "<td>".$row['Bus_id']."</td>";
-	echo "<td>".$row['Seats_no']."</td>";
+	echo "<td>".$row['name']."</td>";
 	echo "<td>".$row['Total_fare']."</td>";
 	echo "<td>".$row['Bank']."</td>";
-	echo "<td>".$row['Payment_method']."</td>";	echo "<td>";
-	echo '<a href="cancel.php?Date='.$Date.' & Fare='.$Fare.'& id='.$id.'& req='.$req.'">Cancel Now</a>';
+	echo "<td>".$row['Payment_method']."</td>";	
+	echo "<td>".$row['Aadhar_no']."</td>";	echo "<td>";
+	echo '<a href="cancel1.php?Date='.$Date.' & Fare='.$Fare.'& id='.$id.'& ano='.$ano.'">Cancel Now</a>';
 	echo "</td>";
 	echo "<td>";
 	echo '<a href="view_ticket1.php?id='.$book_id.'">View Ticket</a>';

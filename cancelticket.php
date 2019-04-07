@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-//include "include.php";
+include "include.php";
   session_start(); 
   if (!isset($_SESSION['user'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -130,8 +130,6 @@ h2
 				}
 				//$_SESSION['bid']=$_GET['id'];
 				?>
-				<?php 
-				$_SESSION['Bus_Id']=$_GET['id'];?>
 					<header class="major">
 					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
@@ -143,16 +141,30 @@ h2
 			</section>
             <center>	<h2>your ticket</h2> </center>
 
-            <form action="cancelticket.php" action="POST">
+            <form action="cancelt.php" action="POST">
 			
-			enter no of seat 
-			<input class="form-control" type="text" placeholder="Enter no of seats you want to cancel" name="Sd" >
-			<br>
-			  <input  class="form-control" type="submit" name="submit" value="Submit">
-			  
-			
-			<br>
-			
+<?php
+include "include.php";
+
+
+$_SESSION['cancelt']=$_GET['Sd'];
+
+$cancel=$_GET['Sd'];
+
+$req= $_SESSION['Seats_no'];
+
+	 for($i=1;$i<$cancel;$i++) 
+	{
+        
+		echo "<input type='text'  name='aadhar".$i."'/>aadhar".$i;
+	} 
+
+?>
+<?php echo '<a href="cancelt.php?cancel='.$cancel.'">Cancel Now</a>'; ?>
+
+
+
+
 
 </form>
 </html>

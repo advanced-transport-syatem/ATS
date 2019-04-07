@@ -228,15 +228,7 @@ else
 		echo "</td>";
 	echo "</tr>";
 	echo "<tr>";
-		echo "<td>";
-		echo '<h4> <i>No of seats:</i></h4>';
-		echo "</td>";
-
-		echo "<td>";
-		echo $row['Seats_no'];
-		echo "</td>";
-	echo "</tr>";
-	echo "<tr>";
+	
 		echo "<td>";
 		echo '<h4> <i>Total fare:</i></h4>';
 		echo "</td>";
