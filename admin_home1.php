@@ -111,7 +111,7 @@ h2
 					<!--	<li><a href="#book">Book Now</a></li>-->
 						<li><a href="admin_logout.php">Logout</a></li>
 						<li><a href="busavailable.php">Bus detail</a></li>
-						<li><a href="cancel_bus.php">Logout</a></li>
+						<li><a href="cancel_bus.php"></a></li>
 					</ul>
 				</nav>
 			</header>

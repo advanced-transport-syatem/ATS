@@ -166,7 +166,7 @@ echo '<table align="center" border=1 >
 while($row=mysql_fetch_array($str))
 {
 	$Bus_id = $row['Bus_Id'];
-
+    
 	//echo $Bus_id;
 	echo "<tr>";
     echo "<td>".$row['P_ID']."</td>";

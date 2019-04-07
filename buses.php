@@ -192,7 +192,7 @@ while($row=mysql_fetch_array($str))
 	echo "<td>".$row['Departure_time']."</td>";
 	echo "<td>".$row['Fare']."</td>";
 	echo "<td>";
-	echo '<a href="cancel_bus.php">Cancel now</a>';
+	echo '<a href="cancel_bus.php?Bus_id='.$Bus_id.'"ss>Cancel now</a>';
     echo "</td>";
     echo "<td>";
 	echo '<a href="passenger_detail.php">Bus PassengerDetail</a>';
