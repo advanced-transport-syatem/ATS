@@ -200,7 +200,7 @@ $rr=$_SESSION['Seats_no'];
 for($j=1; $j<=$rr ;$j++)
 					{
                         
-						$tic="INSERT INTO `ticket`(`Booking_id`,`P_ID`)VALUES((SELECT Booking_id FROM booking WHERE name LIKE '".$_SESSION["fname_{$j}"]."' LIMIT 1), (SELECT P_ID FROM passenger WHERE Fname LIKE '".$_SESSION["fname_{$j}"]."' LIMIT 1))";
+						$tic="INSERT INTO `ticket`(`P_ID`)VALUES((SELECT P_ID FROM passenger WHERE Fname LIKE '".$_SESSION["fname_{$j}"]."' LIMIT 1))";
 					}
                     mysql_query($tic) or die(mysql_error()) or die(mysql_error());
 	                $_SESSION['pay'] = 'Payment successful...';

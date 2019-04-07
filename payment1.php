@@ -140,9 +140,9 @@ h2
   Select a bank
     <!-- &nbsp; &nbsp; &nbsp; &nbsp;-->
   <select name="Bank" class="form-control">
-  	<option value="SBH">XYZ</option>
-  	<option value="SBI">SBH</option>
-  	<option value="AB">ABC</option> </select>
+  	<option value="SBH">SBI</option>
+  	<option value="SBI">AXIC</option>
+  	<option value="AB">ICICI</option> </select>
   	<br>
   Choose a payment method
    <!-- &nbsp; &nbsp; &nbsp; &nbsp;-->
