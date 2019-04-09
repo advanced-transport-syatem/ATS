@@ -1,5 +1,5 @@
 <!doctype html>
-
+<html>
 <head>
 <meta charset="utf-8">
 <title>map2.html</title>
@@ -13,19 +13,10 @@
 	</head>
 
 <body>
-  <?php
-    var cart = JSON.parse(window.localStorage.getItem("$data_arr"));
-    //$data_arr1 = geocode();
- 
-    // if able to geocode the address
-    if($data_arr1){
-         
-        $latitude = $data_arr1[0];
-        $longitude = $data_arr1[1];
-        //$formatted_address = $data_arr[2];
-    }              
-    ?>
- 
+  
+<p id="user"></p>
+
+
 	<script>
     // Initialize the platform object:
     var platform = new H.service.Platform({
@@ -35,8 +26,8 @@
 		router = platform.getRoutingService();
 
 var calculateRouteParams = {
-    'waypoint0': '<?php echo $latitude; ?>',
-    'waypoint1': '<?php echo $longitude; ?>',
+    'waypoint0': 'geo!52.5,13.4',
+    'waypoint1': 'geo!52.5,13.45',
     'mode': 'fastest;car;traffic:disabled'
   },
   onResult = function(result) {
@@ -44,14 +35,19 @@ var calculateRouteParams = {
 	  document.getElementById("output");
 output.innerHTML = JSON.stringify(route.summary.distance);
 	  var dist = JSON.stringify(route.summary.distance);
-	  alert(dist)
+    alert(dist)
+    //var obj = JSON.parse(dist);
   },
   onError = function(error) {
      console.log(error);
   };
 router.calculateRoute(calculateRouteParams, onResult, onError);
+
+//Use dataType:"json" for json data
+
+
 	</script>
 	<div id="output"></div>
-	
+
 </body>
 </html>
