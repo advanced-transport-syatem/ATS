@@ -14,6 +14,8 @@
 
 <body>
 	<script>
+		var ar = ['52.5','13.4'];
+		var waypoint0 = Array.from(ar);
     // Initialize the platform object:
     var platform = new H.service.Platform({
     'app_id': 'bkFUDmFh3em4ykblw08r',
@@ -22,7 +24,7 @@
 		router = platform.getRoutingService();
 
 var calculateRouteParams = {
-    'waypoint0': 'geo!52.5,13.4',
+    waypoint0,
     'waypoint1': 'geo!52.5,13.45',
     'mode': 'fastest;car;traffic:disabled'
   },
