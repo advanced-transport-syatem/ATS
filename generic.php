@@ -117,18 +117,7 @@ h2
 			<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="container">
-				<?php
-			
-				if(isset($_SESSION['pay']))
-				{
-					$rr=$_SESSION['Seats_no'];
-					echo '<p class="message"> <font size="5" color="White"> <center> <i>';
-					echo $_SESSION['pay'];
-					echo "</i></center></font></p>";
-					
-					unset($_SESSION['pay']); 
-				}
-				?>
+				
 					<header class="major">
 					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>

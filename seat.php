@@ -160,7 +160,7 @@
 		$rr=$_SESSION['Seats_no'];
 		$size=sizeof($_POST);
 		$number=$size/5;   //here 3 is number of column in the HTML table
-		for($i=1;$i<=$number;$i++)
+		for($i=1;$i<=$rr;$i++)
 		{
 			$index1="fname".$i;
 			$fname[$i]=$_POST[$index1];
@@ -177,12 +177,11 @@
 		
 		for($i=1;$i<=$rr;$i++)
 		{
-			$query = "INSERT INTO `passenger`(`Bus_id`,`Fname`,`Lname`,`dob`,`age`,`Origin`,`Destination`,`JourneyDate`,`Aadhar_no`)VALUES('". $_SESSION['Bus_id'] ."','". $fname[$i] ."','". $lname[$i] ."', '". $date2[$i] ."','". $age[$i] ."','". $_SESSION['ori'] ."','". $_SESSION['des'] ."','". $_SESSION['DATE'] ."',(SELECT Aadhar_no FROM aadhar WHERE Fname LIKE '".$fname[$i]."'))";
+			$query = "INSERT INTO `passenger`(`UserID`,`Bus_id`,`Fname`,`Lname`,`dob`,`age`,`Origin`,`Destination`,`JourneyDate`,`Aadhar_no`)VALUES((SELECT UserID FROM user WHERE Username LIKE '".$_SESSION['user']."'),'". $_SESSION['Bus_id'] ."','". $fname[$i] ."','". $lname[$i] ."', '". $date2[$i] ."','". $age[$i] ."','". $_SESSION['ori'] ."','". $_SESSION['des'] ."','". $_SESSION['DATE'] ."',(SELECT Aadhar_no FROM aadhar WHERE Fname LIKE '".$fname[$i]."'))";
 		  $number = mysql_query($query) or die(mysql_error());
 		 $_SESSION["fname{$i}"] = $fname[$i];
-		  
+		 $_SESSION["lname{$i}"] = $lname[$i];
 		}
-	
 		
 ?>
 	</BODY>

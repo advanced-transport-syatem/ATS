@@ -131,7 +131,7 @@ td{
 include "include.php";
 $Bus_id;
 
-$sel="SELECT * FROM `bus` where Origin='BHUJ' and Destination='SURAT'  and Date < CURDATE() + INTERVAL 30 DAY" ;
+$sel="SELECT * FROM `bus` where Origin='bhuj' and Destination='surat'  and Date >= CURDATE()" ;
 $str= mysql_query($sel) or die(mysql_error());
 $rows= mysql_num_rows($str) ;
 if($rows==0)

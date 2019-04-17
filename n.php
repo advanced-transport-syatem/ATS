@@ -75,7 +75,7 @@ background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 margin:auto;
 position:relative;
 width:550px;
-height:500px;
+height:450px;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 14px;
 font-style: italic;
@@ -148,7 +148,7 @@ include "include.php";
 //$Bus_id;
 
 	echo '<div class="container">';
-	echo '<table style="width:25%" align="center">';
+	echo '<table style="width:40%" align="center">';
 
 	echo "<tr>";
 		echo "<td>";
@@ -161,24 +161,31 @@ include "include.php";
 	echo "</tr>";
 	echo "<tr>";
 		echo "<td>";
-		echo '<h4> <i> Name:</i></h4>';
+		echo '<h4> <i> passenger</i> <i> Name:</i></h4>';
         echo "</td>";
         
-for($j=1;$j<2;$j++)
+for($j=1;$j<=$rr;$j++)
 {
 		echo "<td>";
-		echo $_SESSION["fname_{$j}"];
-		echo "</td>";}
+		echo $_SESSION["fname{$j}"];
+echo "	&nbsp";
+		echo $_SESSION["lname{$j}"];
+		
+		echo "</td>";
+}
+
 	echo "</tr>";
+
 	echo "<tr>";
 		echo "<td>";
-		echo '<h4> <i>Total Seat bbok:</i></h4>';
+		echo '<h4> <i>Total Seat book:</i></h4>';
 		echo "</td>";
 
 		echo "<td>";
 		echo $_SESSION['Seats_no'];
 		echo "</td>";
 	echo "</tr>";
+
 	echo "<tr>";
 		echo "<td>";
 		echo '<h4> <i>Total Fare:</i></h4>';
@@ -192,28 +199,29 @@ for($j=1;$j<2;$j++)
 
 
 ?>
-  <input class="btn btn-primary" type="submit" name="confirm" value="Submit">
+
 <br></form>
 <?php
             
 $rr=$_SESSION['Seats_no'];
 for($j=1; $j<=$rr ;$j++)
-					{
+		{
                         
-						$tic="INSERT INTO `ticket`(`P_ID`)VALUES((SELECT P_ID FROM passenger WHERE Fname LIKE '".$_SESSION["fname_{$j}"]."' LIMIT 1))";
+						$tic="INSERT INTO `ticket`(`P_ID`,`Aadhar_no`)VALUES((SELECT P_ID FROM passenger WHERE Fname LIKE '".$_SESSION["fname{$j}"]."' LIMIT 1),(SELECT Aadhar_no FROM passenger WHERE Fname LIKE '".$_SESSION["fname{$j}"]."'))";
+						mysql_query($tic) or die(mysql_error()) or die(mysql_error());
 					}
-                    mysql_query($tic) or die(mysql_error()) or die(mysql_error());
+                   
 	                $_SESSION['pay'] = 'Payment successful...';
     
-                    header('location:generic.php');	
+                   // header('location:generic.php');	
                     //$_SESSION['add'] = 'Logged out succesfully';
 //echo '<script language="javascript">document.location.href="home.php"</script>';
                 
 ?>
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
+
 </div>
 		<!-- Footer -->
-        <?php include 'footer.php';?>
+     
 </body>
 </html>
            
