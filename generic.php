@@ -11,7 +11,14 @@
   	unset($_SESSION['user']);
   	header("location: login.php");
 	}
-
+	for($i=1; $i<41; $i++)
+{
+	if(isset($_SESSION["pnr{$i}"]))
+	{
+		
+		unset($_SESSION["pnr{$i}"]);
+	}
+}
 ?>
 <html lang="en">
 	<head>
@@ -40,7 +47,28 @@
 			}
 		</style>-->
 		<style type="text/css">
+body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
+			.container > header h1,
+			.container > header h2 {
+				color: #fff;
 
+				text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+			}
+			a {
+    color: hotpink;
+}
+h1 {
+    color:white;
+}
 input    {
 width:375px;
 display:block;
@@ -105,11 +133,11 @@ display:block;
 }
 h2
 {
-	color:red;
+	color:#ADFF2F;
 }
 		</style>
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
 
@@ -117,17 +145,15 @@ h2
 			<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="container">
-				
 					<header class="major">
-					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
-						
 						<br>
 						<h3>Welcome to ATS</h3>
+						<b><h3>Search Buses</h3>
 					</header>
-                </div>
-			</section>
-			<center>	<h2>Search Buses</h2> </center>
+        
+			<center>	 </center>
+			</div>	
 			<form action="bus_details1.php" method="POST">
 
   From
@@ -143,12 +169,10 @@ h2
   <br>
   <input class="btn btn-primary" type="submit" value="Submit">
   <input class="btn btn-primary" type="reset" value="Reset">
-</form>
+</form></section>
 <br>
-<div class="container">
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
-</div>
-		<!-- Footer -->
+</body>
+		
+<!-- Footer -->
         <?php include 'footer.php';?>
-	</body>
 </html>

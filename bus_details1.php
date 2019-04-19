@@ -41,7 +41,16 @@
 			}
 		</style>-->
 		<style type="text/css">
-
+body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
 input    {
 width:375px;
 display:block;
@@ -114,9 +123,12 @@ h4
 td{
 	color:white;
 }
+th{
+	color:#FF8C00;
+}
 		</style>
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
         <?php include 'header1.php';?>
@@ -155,13 +167,13 @@ $str= mysql_query($sel) or die(mysql_error());
 $rows= mysql_num_rows($str) ;
 if($rows==0)
 {
-	echo '<h3 style= "text-align:center;"> <font color="red">No available Buses </font></h3>';
+	echo '<h3 style= "text-align:center;"><b> <font color="#FF8C00">No available Buses </font></h3>';
 	echo "<br>";
 }
 else
 {
 
-	echo '<h3 style= "text-align:center;"> <font color="red"><center>Available Buses </center></font></h3>';
+	echo '<h3 style= "text-align:center;"><b> <font color="white"><center>Available Buses </center></font></h3>';
 echo '<table align="center" border=1 >
 <tr>
 <th> Id </th>
@@ -201,7 +213,7 @@ echo "</table>";
 }
 ?>
 <br>
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
+
 </div>
 		<!-- Footer -->
         <?php include 'footer.php';?>

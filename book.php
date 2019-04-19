@@ -8,7 +8,7 @@ $d=$_SESSION['DATE'];
 if (!isset($_POST['save']) || $_POST['save'] != 'contact') {
     header('Location: payment1.php'); exit;}
 	
-for($i=1; $i<21; $i++)
+for($i=1; $i<41; $i++)
 {
 
 	$chparam = "ch" . strval($i);
@@ -22,6 +22,7 @@ for($i=1; $i<21; $i++)
 		$query= "INSERT INTO `booking`(`UserID`,`user`,`Date`,`PNR`,`Bus_id`,`Total_fare`,`Bank`,`Payment_method`)VALUES((SELECT UserID FROM user WHERE Username LIKE '".$_SESSION['user']."'),'".$_SESSION['user']."','". $d ."', '". $calcPNR ."','".$_SESSION['Bus_id']."','".$_SESSION['FARE']."','".$_POST['Bank']."','".$_POST['Payment_method']."')";
 		//$results = mysql_real_escape_string($query);
 		$results = mysql_query($query);
+		//$_SESSION["pnr{$i}"]=$calcPNR;
 	}	
 		
 

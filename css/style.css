@@ -45,7 +45,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #666;
+		color: 	#FF4500;
 		font-weight: 300;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -668,7 +668,7 @@
 		}
 
 		table th {
-			color: #666;
+			color: white;
 			font-size: 0.9em;
 			font-weight: 400;
 			padding: 0 0.75em 0.75em 0.75em;

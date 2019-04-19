@@ -41,7 +41,16 @@
 			}
 		</style>-->
 		<style type="text/css">
-
+body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
 input    {
 width:375px;
 display:block;
@@ -75,7 +84,7 @@ background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 margin:auto;
 position:relative;
 width:550px;
-height:450px;
+height:300px;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 14px;
 font-style: italic;
@@ -104,13 +113,20 @@ height:150px;
 textarea.message {
 display:block;
 }
-h2
+h4
 {
-	color:red;
+	color:WHITE;
 }
+td{
+	color:white;
+}
+th{
+	color:white;
+}
+
 		</style>
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
 
@@ -123,7 +139,7 @@ h2
 				if(isset($_SESSION['pay']))
 				{
 					$rr=$_SESSION['Seats_no'];
-					echo '<p class="message"> <font size="5" color="White"> <center> <i>';
+					echo '<p class="message"> <font size="5" color="#FF8C00"> <center> <i>';
 					echo $_SESSION['pay'];
 					echo "</i></center></font></p>";
 					
@@ -134,12 +150,10 @@ h2
 					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						
-						<br>
-						<h3>Welcome to ATS</h3>
 					</header>
                 </div>
 			</section>
-            <center>	<h2>your ticket</h2> </center>
+            <center>	<h2><b><font color="#FF8C00">your ticket</h2> </center>
 
             <form action=" " action="POST">
             <?php
@@ -182,8 +196,19 @@ echo "	&nbsp";
 		echo "</td>";
 
 		echo "<td>";
-		echo $_SESSION['Seats_no'];
+		for($i=1; $i<41; $i++)
+		{
+			
+			//$chparam = "ch" . strval($i);
+			if(isset($_SESSION["pnr{$i}"]))
+			{
+				echo "$i.";
+			}
+			
+		}
 		echo "</td>";
+		//echo $_SESSION['Seats_no'];
+		
 	echo "</tr>";
 
 	echo "<tr>";
@@ -207,7 +232,7 @@ $rr=$_SESSION['Seats_no'];
 for($j=1; $j<=$rr ;$j++)
 		{
                         
-						$tic="INSERT INTO `ticket`(`P_ID`,`Aadhar_no`)VALUES((SELECT P_ID FROM passenger WHERE Fname LIKE '".$_SESSION["fname{$j}"]."' LIMIT 1),(SELECT Aadhar_no FROM passenger WHERE Fname LIKE '".$_SESSION["fname{$j}"]."'))";
+						$tic="INSERT INTO `ticket`(`P_ID`,`Aadhar_no`)VALUES((SELECT P_ID FROM passenger WHERE Fname LIKE '".$_SESSION["fname{$j}"]."' LIMIT 1),(SELECT Aadhar_no FROM passenger WHERE Fname LIKE '".$_SESSION["fname{$j}"]."' LIMIT 1))";
 						mysql_query($tic) or die(mysql_error()) or die(mysql_error());
 					}
                    

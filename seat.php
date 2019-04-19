@@ -21,7 +21,18 @@
 	mysql_select_db('bus_booking_system');
 	
 ?>
-
+<style>
+	body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
+	</style>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -32,9 +43,9 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive1.css">
 		
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 	<?php if (isset($_SESSION['Seats_no'])) {
-						echo '<p class="message"> <font size="5" color="White"> <center> <i>';
+						echo '<p class="message"> <font size="5" color="red"> <center> <i>';
 						echo 'please select only ';
 						echo $_SESSION['Seats_no'];
 						echo ' seats';
@@ -44,9 +55,10 @@
 		<br /><br /><br />
 		<div class="container">
 			<div class="row well">
-				<div class="span10">
+				<div class="span4">
 					<form action="payment1.php" name="f" method="POST" onsubmit="return validateCheckBox();">
 						<ul class="thumbnails">
+							<center>
 						<?php
 						
 						
@@ -56,7 +68,7 @@
 							$rows= mysql_num_rows($result);
 							if ($rows == 0)
 							{
-								for($i=1; $i<21; $i++)
+								for($i=1; $i<41; $i++)
 								{
 									echo "<li class='span1'>";
 										echo "<a href='#' class='thumbnail' title='Available'>";
@@ -70,14 +82,14 @@
 							}
 							else
 							{
-								$seats = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+								$seats = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 								while($row = mysql_fetch_array($result))
 								{
 									$pnr = explode("-", $row['PNR']);
 									$pnr[3] = intval($pnr[3]) - 1;
 									$seats[$pnr[3]] = 1;
 								}
-								for($i=1; $i<21; $i++)
+								for($i=1; $i<41; $i++)
 								{
 									$j = $i - 1;
 									if($seats[$j] == 1)
@@ -106,6 +118,7 @@
 								
 							}
 						?>
+						</center>
 						</ul>
 						<center>
 						<br><br>
@@ -129,8 +142,6 @@
 		
 			function validateCheckBox()
 			{
-				
-
 				var c = document.getElementsByTagName('input');
 				var f=0;
 				var a = '<?php echo $_SESSION['Seats_no']; ?>';
@@ -138,7 +149,6 @@
 				{
 					if (c[i].type == 'checkbox')
 					{
-						
 						 if (c[i].checked)
 						{
 							 f=f+1;
@@ -166,9 +176,7 @@
 			$fname[$i]=$_POST[$index1];
 			$index2="lname".$i;
 			$lname[$i]=$_POST[$index2];
-			$index3="date2".$i;
-			$date2[$i]=$_POST[$index3];	
-			$date2[$i] = strip_tags( utf8_decode( $date2[$i] ) );
+			
 			$index3="age".$i;
 			$age[$i]=$_POST[$index3];	
 			$index3="aadhar".$i;
@@ -177,7 +185,7 @@
 		
 		for($i=1;$i<=$rr;$i++)
 		{
-			$query = "INSERT INTO `passenger`(`UserID`,`Bus_id`,`Fname`,`Lname`,`dob`,`age`,`Origin`,`Destination`,`JourneyDate`,`Aadhar_no`)VALUES((SELECT UserID FROM user WHERE Username LIKE '".$_SESSION['user']."'),'". $_SESSION['Bus_id'] ."','". $fname[$i] ."','". $lname[$i] ."', '". $date2[$i] ."','". $age[$i] ."','". $_SESSION['ori'] ."','". $_SESSION['des'] ."','". $_SESSION['DATE'] ."',(SELECT Aadhar_no FROM aadhar WHERE Fname LIKE '".$fname[$i]."'))";
+			$query = "INSERT INTO `passenger`(`UserID`,`Bus_id`,`Fname`,`Lname`,`dob`,`age`,`Origin`,`Destination`,`JourneyDate`,`Aadhar_no`)VALUES((SELECT UserID FROM user WHERE Username LIKE '".$_SESSION['user']."'),'". $_SESSION['Bus_id'] ."','". $fname[$i] ."','". $lname[$i] ."',(SELECT dob FROM aadhar WHERE Fname LIKE '". $fname[$i] ."'),'". $age[$i] ."','". $_SESSION['ori'] ."','". $_SESSION['des'] ."','". $_SESSION['DATE'] ."',(SELECT Aadhar_no FROM aadhar WHERE Fname LIKE '".$fname[$i]."'))";
 		  $number = mysql_query($query) or die(mysql_error());
 		 $_SESSION["fname{$i}"] = $fname[$i];
 		 $_SESSION["lname{$i}"] = $lname[$i];

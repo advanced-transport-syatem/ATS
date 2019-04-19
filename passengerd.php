@@ -42,11 +42,20 @@
 			}
 		</style>-->
 		<style type="text/css">
-
+body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
 input    {
 width:375px;
 display:block;
-border: 1px solid #999;
+border: 1px solid white;
 height: 25px;
 -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -70,10 +79,8 @@ input.button:hover {
 background:#fff;
 color:#09C;
 }
-
 table, th, td {
   border: 1px solid blue;
-
 }
 input::-webkit-input-placeholder {
   color: 	#f00;
@@ -85,15 +92,10 @@ height:150px;
 textarea.message {
 display:block;
 }
-h2
-{
-	color:red;
-}
-
 		</style>
         
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
 
@@ -102,7 +104,6 @@ h2
 			<section id="main" class="wrapper">
 				<div class="container">
 				<?php
-			
 				if(isset($_SESSION['pay']))
 				{
 					echo '<p class="message"> <font size="5" color="White"> <center> <i>';
@@ -112,23 +113,20 @@ h2
 				}
 				?>
 					<header class="major">
-					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
-						
 						<br>
 						<h3>Welcome to ITS</h3>
 					</header>
                 </div>
 			</section>
-			<center>	<h2>Passenger Deatil</h2> </center>
+			<h2 style= "text-align:center;"><b><font color="white">Passenger Deatil</center></font></h2> 
 			<form action="seat.php" method="POST">
                 <table><center>
                     <tr><th>No</th>
                     <th>Fname</th>
                     <th>Lname</th>
-                    <th> Date of birth</th>
-                    <th>Age</th>
                     
+                    <th>Age</th>
                     <th>Aadhar numberNo</th>
                     </tr>
    <?php for($i=1;$i<=$s;$i++) 
@@ -137,9 +135,7 @@ h2
   <input class="form-control" placeholder="Enter your Fname" type="text" name="fname<?php echo $i; ?>" id='fname{$i}'>
             </td> 
   <td><input class="form-control" type="text" placeholder="Enter your Lname" name="lname<?php echo $i; ?>" >
-            </td> <td> 
-            <input  type="date" placeholder="yyyy-dd-mm" name="date2<?php echo $i; ?>" >
-            </td><td>
+            </td> <td>
 	<input class="form-control" type="text" placeholder="Enter your age" name="age<?php echo $i; ?>" >
             </td><td>
 	<!--<input class="form-control" type="radio"  name="radio" value="male""">male
@@ -155,9 +151,7 @@ h2
             </center>
 </form>
 <br>
-<div class="container">
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
-</div>
+
 		<!-- Footer -->
         <?php include 'footer.php';?>
 	</body>

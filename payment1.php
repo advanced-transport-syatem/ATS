@@ -42,7 +42,16 @@
 			}
 		</style>-->
 		<style type="text/css">
-
+body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
 input    {
 width:375px;
 display:block;
@@ -107,11 +116,11 @@ display:block;
 }
 h2
 {
-	color:red;
+	color:#FF8C00;
 }
 		</style>
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
         <?php include 'header1.php';?>
@@ -135,7 +144,7 @@ h2
 
 -->				</div>
 			</section>
-			<center>	<h2>Book bus</h2> </center>
+			<center>	<h2><b><font color="white">Book bus</h2></font> </center>
 			<form action="book.php" method="POST">
   Select a bank
     <!-- &nbsp; &nbsp; &nbsp; &nbsp;-->
@@ -152,12 +161,13 @@ h2
   	<br>
 					Seat Numbers<br>
 					<?php 
-						for($i=1; $i<21; $i++)
+						for($i=1; $i<41; $i++)
 						{
 							$chparam = "ch" . strval($i);
 							if(isset($_POST[$chparam]))
 							{
 								echo "<input type='text' class='span3' name=ch".$i." value=".$i." readonly/>";
+								$_SESSION["pnr{$i}"]=$i;
 							}
 						}
 					?>
@@ -171,9 +181,6 @@ h2
 	</div>
 </form>
 <br><br><br><br><br>
-<div class="container">
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
-</div>
 
 		<!-- Footer -->
         <?php include 'footer.php';?>
