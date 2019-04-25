@@ -83,8 +83,8 @@ background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEE
 background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 margin:auto;
 position:relative;
-width:550px;
-height:300px;
+width:750px;
+height:550px;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 14px;
 font-style: italic;
@@ -115,10 +115,10 @@ display:block;
 }
 h4
 {
-	color:WHITE;
+	color:#FF8C00;
 }
 td{
-	color:white;
+	color:#FF8C00;
 }
 th{
 	color:white;
@@ -149,30 +149,60 @@ th{
 					<header class="major">
 					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
-						
+			
 					</header>
                 </div>
 			</section>
             <center>	<h2><b><font color="#FF8C00">your ticket</h2> </center>
 
             <form action=" " action="POST">
+						<div id="print_setion">
             <?php
 include "include.php";
+$sql = "SELECT Name,Origin,Destination FROM bus WHERE Bus_id= '".$_SESSION['bid']."'" ;
+$str= mysql_query($sql) or die(mysql_error());
+//$rows= mysql_num_rows($str) ;
 //$user=$_SESSION['user'];
 //$Bus_id;
-
+while($row=mysql_fetch_array($str))
+{
 	echo '<div class="container">';
-	echo '<table style="width:40%" align="center">';
+	echo '<table style="width:60%" align="center">';
 
 	echo "<tr>";
 		echo "<td>";
 		echo '<h4> <i>Date:</i></h4>';
 		echo "</td>";
-
 		echo "<td>";
 		echo $_SESSION['DATE'];
 		echo "</td>";
 	echo "</tr>";
+
+	echo "<tr>";
+	echo "<td>";
+	echo '<h4> <i>Bus name:</i></h4>';
+	echo "</td>";
+	echo "<td>";
+	echo '<h4> <i>'.$row['Name'].'</i></h4>';
+	echo "</td>";
+echo "</tr>";
+	echo "<tr>";
+	echo "<td>";
+	echo '<h4> <i>Origin:</i></h4>';
+	echo "</td>";
+	echo "<td>";
+	echo '<h4> <i>'.$row['Origin'].'</i></h4>';
+	echo "</td>";
+echo "</tr>";
+echo "<tr>";
+echo "<td>";
+echo '<h4> <i>destination:</i></h4>';
+echo "</td>";
+echo "<td>";
+echo '<h4> <i>'.$row['Destination'].'</i></h4>';
+echo "</td>";
+echo "</tr>";
+
 	echo "<tr>";
 		echo "<td>";
 		echo '<h4> <i> passenger</i> <i> Name:</i></h4>';
@@ -222,10 +252,13 @@ echo "	&nbsp";
     echo "</tr>";
   
 
-
+	}
 ?>
+</div>
+</form>
+<br><tr><td><input class="btn btn-primary" type="button" value="Print" name="print" onclick="printDivSection('print_setion')"></td></tr>
 
-<br></form>
+
 <?php
             
 $rr=$_SESSION['Seats_no'];
@@ -245,6 +278,22 @@ for($j=1; $j<=$rr ;$j++)
 ?>
 
 </div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-latest.min.js">\x3C/script>')</script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript">
+
+function printDivSection(setion_id) {
+     var Contents_Section = document.getElementById(setion_id).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = Contents_Section;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
 		<!-- Footer -->
      
 </body>

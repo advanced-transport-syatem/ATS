@@ -134,7 +134,7 @@ h2
 					<header class="major">
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
-						<h3>Welcome to BookMyBusTicket</h3>
+						<center>	<h3><b><font color="#FF8C00">Welcome to ITS</h3> </center>
 					</header>
 
 				<!--	<a href="#" class="image fit"><img src="images1/bus3.jpg" alt="" /></a>-->

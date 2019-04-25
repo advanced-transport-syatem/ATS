@@ -227,7 +227,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
+ 
 }
 
 a {
@@ -270,7 +270,7 @@ a:focus {
 
 .row:before,
 .row:after {
-  display: table;
+  
   line-height: 0;
   content: "";
 }

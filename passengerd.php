@@ -92,6 +92,11 @@ height:150px;
 textarea.message {
 display:block;
 }
+h3
+{
+	color:#FF8C00;
+	
+}
 		</style>
         
 	</head>
@@ -115,7 +120,8 @@ display:block;
 					<header class="major">
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
-						<h3>Welcome to ITS</h3>
+						<br>
+						<center>	<h3><b><font color="#FF8C00">Welcome to ITS</h3> </center>
 					</header>
                 </div>
 			</section>

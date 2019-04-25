@@ -55,13 +55,11 @@ background-size: cover;
 		<br /><br /><br />
 		<div class="container">
 			<div class="row well">
-				<div class="span4">
+				<div class="span10">
 					<form action="payment1.php" name="f" method="POST" onsubmit="return validateCheckBox();">
 						<ul class="thumbnails">
 							<center>
 						<?php
-						
-						
 							$date = strip_tags( utf8_decode( $_SESSION['DATE'] ) );
 							$query = "select * from booking where Date = '" . $date . "'";
 							$result = mysql_query($query);
@@ -89,7 +87,7 @@ background-size: cover;
 									$pnr[3] = intval($pnr[3]) - 1;
 									$seats[$pnr[3]] = 1;
 								}
-								for($i=1; $i<41; $i++)
+								for($i=1; $i<21; $i++)
 								{
 									$j = $i - 1;
 									if($seats[$j] == 1)
@@ -114,7 +112,39 @@ background-size: cover;
 											echo "</a>";
 										echo "</li>";
 									}
-								}									
+								}	
+								for($i=21; $i<41; $i++)
+								{
+									echo "<li class='span1'>";
+										echo "<br>";
+									echo "</li>";
+								}
+								for($i=21; $i<41; $i++)
+								{
+									$j = $i - 1;
+									if($seats[$j] == 1)
+									{
+										echo "<li class='span1'>";
+											echo "<a href='#' class='thumbnail' title='Booked'>";
+												echo "<img src='img/occupied.png' alt='Booked Seat'/>";
+												echo "<label class='checkbox'>";
+													echo "<input type='checkbox' name='ch".$i."' disabled/>Seat".$i;
+												echo "</label>";
+											echo "</a>";
+										echo "</li>";
+									}
+									else
+									{
+										echo "<li class='span1'>";
+											echo "<a href='#' class='thumbnail' title='Available'>";
+												echo "<img src='img/available.png' alt='Available Seat'/>";
+												echo "<label class='checkbox'>";
+													echo "<input type='checkbox'  name='ch".$i."'/>Seat".$i;
+												echo "</label>";
+											echo "</a>";
+										echo "</li>";
+									}
+								}
 								
 							}
 						?>
@@ -128,7 +158,7 @@ background-size: cover;
 							<button type="reset" class="btn">
 								<i class="icon-refresh icon-black"></i> Clear
 							</button>
-							<a href="./index.php" class="btn btn-danger"><i class="icon-arrow-left icon-white"></i> Back </a>
+							<a href="./generic.php" class="btn btn-danger"><i class="icon-arrow-left icon-white"></i> Back </a>
 							</center>
 					</form>
 				</div>

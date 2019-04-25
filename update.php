@@ -31,7 +31,16 @@
 			}
 		</style>-->
 		<style type="text/css">
-		
+		body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
 input    {
 width:375px;
 display:block;
@@ -106,7 +115,7 @@ td{
 }
 		</style>
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
 			<?php include 'header1.php' ?>
@@ -114,7 +123,7 @@ td{
 				<?php session_start();?>
 		<!-- Main -->
 			<section id="main" class="wrapper">
-				<div class="container">
+			
 				<?php
 					if(isset($_SESSION['update']))
 					{
@@ -124,14 +133,13 @@ td{
 						unset($_SESSION['update']); 
 					}
 			
-				?>
+				?></div>
 					<header class="major">
 						<center><i><font  size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
-						<br>
-						<h3>Welcome to ATS</h3>
+					
 					</header>
 
-<center>	<h2>Update Profile</h2> </center>
+<center>	<h2><b><font color="#7FFFD4">Update Profile</h2> </center>
 
 <?php 
 include "include.php";
@@ -171,12 +179,11 @@ else
 <br>
  <input type="submit" class="btn btn-primary" name="sub" value="Update">
  <br>
+ </div>
 </form>
-</div>
-<br>
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
-</div>
-		<!-- Footer -->
-        <?php include 'footer.php';?>
+
+<!-- Footer -->
+<?php include 'footer.php';?>
+	
 	</body>
 </html>

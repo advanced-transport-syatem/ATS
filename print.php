@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+//include "include.php";
   session_start(); 
   if (!isset($_SESSION['user'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -10,13 +11,12 @@
   	unset($_SESSION['user']);
   	header("location: login.php");
 	}
-	
-?>
 
+?>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Bus_details</title>
+		<title>Generic</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -30,8 +30,7 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
-		
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<link rel="stylesheet" href="css/ie/v8.css" />
 		<!--<style >
 		body {
 				background: #7f9b4e url(images1/bus3.jpg) no-repeat center top;
@@ -83,8 +82,8 @@ background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEE
 background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
 margin:auto;
 position:relative;
-width:550px;
-height:450px;
+width:750px;
+height:350px;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 14px;
 font-style: italic;
@@ -113,116 +112,66 @@ height:150px;
 textarea.message {
 display:block;
 }
-h2{
-	color:red;
-}
 h4
 {
-	color:#FF8C00;
+	color:WHITE;
 }
 td{
-	color:#FF8C00;
+	color:white;
 }
 th{
-	color:#FF8C00;
+	color:white;
 }
-h3
-{
-	color:#FF8C00;
-	
-}
+
 		</style>
 	</head>
 	<body>
 
 		<!-- Header -->
-        <?php include 'header1.php';?>
-			<div class="container">
-		<!--?php
-		echo '<h3 style="text-align:left;"> <font color="red"> <i> Hello ';
-		echo $_SESSION['user'];
-		echo "</i> </font>";
-		echo '</h3>';*/
-		?-->
 
-		<!-- Main -->
+        <?php include 'header1.php';?>
+			<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="container">
-	
+				<?php
 			
+				if(isset($_SESSION['pay']))
+				{
+					$rr=$_SESSION['Seats_no'];
+					echo '<p class="message"> <font size="5" color="#FF8C00"> <center> <i>';
+					echo $_SESSION['pay'];
+					echo "</i></center></font></p>";
+					
+					unset($_SESSION['pay']); 
+				}
+				?>
 					<header class="major">
+					
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
-						<br>
-						<br>
-						<center>	<h3><b><font color="#FF8C00">Welcome to ITS</h3> </center>
+						
 					</header>
-
+                </div>
 			</section>
-				</div>
+            <center>	<h2><b><font color="#FF8C00">your ticket</h2> </center>
 
-<?php
+            <form action="psrint.php" action="POST">
+            <?php
 include "include.php";
-$req=$_POST["Seats"];
-$_SESSION['rs']=$_POST["Seats"];
-$_SESSION['DATE']=$_POST['Date'];
-$_SESSION["Seats"]=$_POST['Seats'];
-$_SESSION['des']=$_POST["Destination"];
-$_SESSION['ori']=$_POST["Origin"];
-$sel="SELECT * FROM `bus` where Origin='".$_POST["Origin"]."' and Destination='".$_POST["Destination"]."' and Date='".$_SESSION["DATE"]."' and Seats>= ".$_POST['Seats']."  " ;
-$str= mysql_query($sel) or die(mysql_error());
-$rows= mysql_num_rows($str) ;
-if($rows==0)
-{
-	echo '<h3 style= "text-align:center;"><b> <font color="#FF8C00">No available Buses </font></h3>';
-	echo "<br>";
-}
-else
+//$user=$_SESSION['user'];
+//$Bus_id;
+
+	
+if (isset($_POST['print']))
 {
 
-	echo '<h3 style= "text-align:center;"><b> <font color="white"><center>Available Buses </center></font></h3>';
-echo '<table align="center" border=1 >
-<tr>
-<th> Id </th>
-<th> Name of the bus</th>
-<th> Available seats </th>
-<th> Origin </th>
-<th> Destination </th>
-<th> Date of journey</th>
-<th> Arrival time </th>
-<th> Departure time </th>
-<th> Fare </th>
-<th> Book </th>
-</tr>';
-while($row=mysql_fetch_array($str))
-{
-	$Bus_id = $row['Bus_Id'];
-	$_SESSION['bid']=$Bus_id;
-	$_SESSION['FARE']=$row['Fare'];
-	$Total_fare= $row['Fare'] * $req;
-	//echo $Bus_id;
-	echo "<tr>";
+}
 
-	echo "<td><b>".$row['Bus_Id']."</td>";
-	echo "<td>".$row['Name']."</td>";
-	echo "<td>".$row['Seats']."</td>";
-	echo "<td>".$row['Origin']."</td>";
-	echo "<td>".$row['Destination']."</td>";
-	echo "<td>".$row['Date']."</td>";
-	echo "<td>".$row['Arrival_time']."</td>";
-	echo "<td>".$row['Departure_time']."</td>";
-	echo "<td>".$row['Fare']."</td>";
-	echo "<td>";
-	echo '<a href="passengerd.php?Seats_no='.$req.'& Bus_id='.$Bus_id.'& Total_fare='.$Total_fare.'">Book Now</a>';
-	echo "</td>";
-	echo "</tr>";
-}
-echo "</table>";
-}
+                
 ?>
-<br>
 
 </div>
 		<!-- Footer -->
-        <?php include 'footer.php';?>
-	</body>
+     
+</body>
 </html>
+           

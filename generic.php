@@ -135,6 +135,11 @@ h2
 {
 	color:#ADFF2F;
 }
+h3
+{
+	color:#FF8C00;
+	
+}
 		</style>
 	</head>
 	<body>
@@ -148,11 +153,9 @@ h2
 					<header class="major">
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
-						<h3>Welcome to ATS</h3>
-						<b><h3>Search Buses</h3>
+						<center>	<h3><b><font color="#FF8C00">Welcome to ITS</h3> </center>
+						<center>	<h4><b><font color="#FF8C00">Search Bus</h4> </center>
 					</header>
-        
-			<center>	 </center>
 			</div>	
 			<form action="bus_details1.php" method="POST">
 

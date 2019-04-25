@@ -43,7 +43,16 @@
 			}
 		</style>-->
 		<style type="text/css">
-
+body {
+				background: #7f9b4e url(images1/Bhuj1.jpg);
+				background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+			}
 input    {
 width:375px;
 display:block;
@@ -114,11 +123,11 @@ h4
 	color:white;
 }
 td{
-	color:white;
+	color:#FF8C00;
 }
 		</style>
 	</head>
-	<body style="background:-webkit-linear-gradient(left top,BurlyWood,Chocolate,Darkkhaki,BlanchedAlmond,BurlyWood); background: linear-gradient(to bottom right,BurlyWood,CadetBlue,Darkkhaki,BlanchedAlmond,BurlyWood);">
+	<body>
 
 		<!-- Header -->
         <?php include 'header1.php';?>
@@ -145,7 +154,7 @@ td{
 					<header class="major">
 						<center><i><font size="35"><strong>Hello <?php echo $_SESSION['user']?></font></i></strong></center>
 						<br>
-						<h3>Welcome to ATS</h3>
+						
 					</header>
 
 				<!--	<a href="#" class="image fit"><img src="images1/bus3.jpg" alt="" /></a>-->
@@ -154,7 +163,7 @@ td{
 					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
 
 -->				</div>
-<center>	<h2>Booking History</h2> </center>
+<center>	<h2><b><font color=#7FFFD4>Booking History</h2> </center>
 <?php
 include "include.php";
 //$user=$_SESSION['user'];
@@ -212,8 +221,7 @@ echo "</table>";
 ?>
 			</section>
 
-<br>
-<a href="#" class="image fit"><img src="images1/pp5.jpg" alt="" /></a>
+
 </div>
 		<!-- Footer --><footer id="footer">
             <?php include 'footer.php';?>
