@@ -66,7 +66,24 @@ background-size: cover;
 							$rows= mysql_num_rows($result);
 							if ($rows == 0)
 							{
-								for($i=1; $i<41; $i++)
+								for($i=1; $i<21; $i++)
+								{
+									echo "<li class='span1'>";
+										echo "<a href='#' class='thumbnail' title='Available'>";
+											echo "<img src='img/available.png' alt='Available Seat'/>";
+											echo "<label class='checkbox'>";
+												echo "<input type='checkbox' name='ch".$i."'/>Seat".$i;
+											echo "</label>";
+										echo "</a>";
+									echo "</li>";								
+								}
+								for($i=21; $i<41; $i++)
+								{
+									echo "<li class='span1'>";
+										echo "<br>";
+									echo "</li>";
+								}
+								for($i=21; $i<41; $i++)
 								{
 									echo "<li class='span1'>";
 										echo "<a href='#' class='thumbnail' title='Available'>";
